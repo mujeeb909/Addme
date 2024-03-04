@@ -64,7 +64,7 @@ class HomeController extends Controller
             $isQueryParam = true;
         } else {
             //$language = $_SESSION['language'] = 'de';
-            $language = isset($_SESSION['language']) ? $_SESSION['language'] : 'en'; //session('language');
+            $language = isset($_SESSION['language']) ? $_SESSION['language'] : 'en';;; //session('language');
         }
         
 

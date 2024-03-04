@@ -327,6 +327,7 @@ class HomeController extends Controller
             $list['email_was_sent'] = "Zur Bestätigung wurde eine Email versendet";
             $list['company'] = "Unternehmen";
             $list['contact_pushed'] = "Kontakt wurde erfolgreich in Hubspot übertragen";
+            $list['confirmation_msg'] = "Um den Kontakt zu speichern, wählen Sie unten auf der folgenden Seite Neuen Kontakt erstellen.";
 
         } else {
             $list['save_contact'] = 'Save Contact';
@@ -362,6 +363,7 @@ class HomeController extends Controller
             $list['email_was_sent'] = "An email was sent to confirm";
             $list['company'] = "Company";
             $list['contact_pushed'] = "Contact pushed into hubspot successfully";
+            $list['confirmation_msg'] = "To save the contact, Select Create New Contact at the bottom of following page";
         }
 
         return $list;

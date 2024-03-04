@@ -15,6 +15,7 @@
                 opacity: 0.3
             }
         </style>
+        
     @endif
 
     <div class="col-md-12 col-xs-12 col-lg-6 shadow-profile bg-row" id="content-section">
@@ -131,16 +132,18 @@
                                         style="display: inline-block;text-align: center; margin: 0 auto; white-space: pre-line;">{{ $language_text['connect'] }}</span></a>
                             </div>
                         @endif
+            
                         @if (isset($settings['show_contact']) && $settings['show_contact'] != 0)
                             @if ($ContactCard > 0)
                                 <div class="{{ $settings['full_width_btn'] == 1 ? 'col-11' : 'col-6' }} lg-btns d-none">
                                     <a data-show-contact="{{ $settings['show_contact'] }}"
                                         href="{{ $blurOff == 'blurOn' ? main_url() . '/contact-card/' . encrypt($profile->id) . '?language=' . $language : '#' }}"
-                                        class="btn btn-primary red-button save-contact"><img width="20"
+                                        class="btn btn-primary red-button save-contact" id="downloadButton" ><img width="20"
                                             class="pull-left d-none"
                                             src="{{ uploads_url() . 'img/ic_contact_card.png' }}"><span
                                             style="display: inline-block;text-align: center; margin: 0 auto; white-space: pre-line;">{!! $language_text['save_contact'] !!}</span></a>
                                 </div>
+
                             @endif
                         @endif
                     </div>
@@ -327,6 +330,8 @@
                 </div>
             </div>
         @endif
+
+        
         <script type="text/javascript">
             var relative_path = '';
             var site_url = '';
@@ -610,7 +615,23 @@
                     // $('#button-div .connect-btn span, #button-div .save-contact span').css('margin-left', '10px');
                 });
             }
+
+
+
+            document.getElementById("downloadButton").addEventListener("click", function(event) {
+        
+            var confirmed = confirm("{{ $language_text['confirmation_msg'] }}");
+
+            if (!confirmed) {
+                event.preventDefault();
+        }
+    });
+
+
+
+
         </script>
+        
 
         {{-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4sckpx0c1d9JOug9jJg_URJI_wgVSFVw"></script> --}}
 

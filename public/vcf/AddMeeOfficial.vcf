@@ -6,5 +6,5 @@ ORG:AddMee GmbH
 URL;TYPE=My addmee Profile:http://127.0.0.1:8000/addmee
 URL;TYPE=Website:https://www.addmee.de
 EMAIL;INTERNET;TYPE=Email:info@addmee.de
-NOTE;CHARSET=utf-8:Added by addmee, Mar 04, 2024
+NOTE;CHARSET=utf-8:Added by addmee, Mar 05, 2024
 END:VCARD

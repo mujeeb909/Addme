@@ -17,6 +17,17 @@
         </style>
         
     @endif
+    <style>
+        input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    input[type="number"] {
+        -moz-appearance: textfield;
+    }
+    </style>
 
     <div class="col-md-12 col-xs-12 col-lg-6 shadow-profile bg-row" id="content-section">
         <div class="profile {{ $blurOff }}">
@@ -292,8 +303,8 @@
                             <input type="email" autocomplete="email" id="email" value=""
                                 class="form-control mb-3 " placeholder="{{ $language_text['your_email'] }}*">
                             <p class="mb-3 text-left" id="email_info"></p>
-                            <input type="number" autocomplete="tel" id="number" value=""
-                                class="form-control mb-3" placeholder="{{ $language_text['your_phone_number'] }}*">
+                            <input type="tel" autocomplete="tel" id="number"  pattern="[0-9]*" value=""
+                                class="form-control mb-3" placeholder="{{ $language_text['your_phone_number'] }}*" onkeydown="return (event.key >= '0' && event.key <= '9') || event.key === '+' || event.key === 'Backspace' || event.key === 'Delete' || event.key === 'Tab' || event.key === 'Escape' || event.key === 'Enter'">
                             <input type="hidden" id="user_id" value="{{ $profile->id }}">
                             <p class="mb-3 text-left" id="number_info"></p>
 
@@ -422,12 +433,15 @@
                     return false;
                 }
 
+            
+
                 // if (note == '') {
                 //     $('#note_info').html('<span class="alert alert-danger">{{ $language_text['note_alert'] }}</span>').fadeIn(
                 //             150)
                 //         .delay(5000).fadeOut(150);
                 //     return false;
                 // }
+                
 
                 number = number.replace('+', '%2B')
                 var data = 'first_name=' + first_name + '&last_name=' + last_name + '&email=' + email + '&phone_no=' + number +
